@@ -21,7 +21,7 @@
         <%= select_tag :residence, options_for_select(User.residences), include_blank: "居住地で検索" %>
       </div>
       <div class="user-index-search">
-        <%= button_tag :type => "submit" do %>
+        <%= button_tag :type => "submit", class: 'btn-block btn-white' do %>
           <i class="fa fa-search"></i>検索
         <% end %>
       </div>
