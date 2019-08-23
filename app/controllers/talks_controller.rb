@@ -16,7 +16,6 @@ class TalksController < ApplicationController
     @talk=current_user.talks.new(talk_params)
 
     if @talk.save
-      @talks = Talk.talk_matchers(current_user, params[:id]).includes(:user).page(1).per(20)
       redirect_to talks_path(id: talk_params[:partner_id])
     else
       flash.now[:danger]="失敗しました。"
