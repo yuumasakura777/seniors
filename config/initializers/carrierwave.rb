@@ -25,8 +25,8 @@
 CarrierWave.configure do |config|
 config.fog_credentials = {
     :provider                         => 'Google',
-    :google_storage_access_key_id     => 'GOOGLE_ACCESS_TOKEN',
-    :google_storage_secret_access_key => 'GOOGLE_SECRET_ACCESS_TOKEN'
+    :google_storage_access_key_id     => 'GOOGYB5ECIN746O6TBZ3TZCR',
+    :google_storage_secret_access_key => 'HBsMpAKKamsm8XDfcrPUfp5MXcVvcvo6eKqGpZPY'
     }
     config.fog_directory = 'seniors'
 end
