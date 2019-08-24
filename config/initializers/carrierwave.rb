@@ -14,8 +14,7 @@ if Rails.env.production?
       :aws_secret_access_key => 'S3_SECRET_KEY_ID',
       :region                => 'S3_REGION'
     }
-    config.fog_directory = 'seniors777'
+    config.fog_directory = 'S3_BUCKET'
     config.fog_public = true
-end
-
+  end
 end
