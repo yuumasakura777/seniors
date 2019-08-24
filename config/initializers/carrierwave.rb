@@ -1,6 +1,6 @@
 
-require 'carrierwave/storage/abstract'
-require 'carrierwave/storage/file'
+#require 'carrierwave/storage/abstract'
+#require 'carrierwave/storage/file'
 require 'carrierwave/storage/fog'
 
 
@@ -16,5 +16,6 @@ if Rails.env.production?
     }
     config.fog_directory = 'seniors777'
     config.fog_public = true
-  end
+end
+
 end
