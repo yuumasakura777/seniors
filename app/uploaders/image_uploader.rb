@@ -12,7 +12,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   #amazon S3に保存
 
   storage :fog
-
+  #storage :file
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:

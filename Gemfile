@@ -80,6 +80,7 @@ end
   gem 'carrierwave'
 #gem 'fog-aws'
   gem 'fog'
-  gem 'dotenv-rails'
+
+#gem 'dotenv-rails'
 #mailer
   gem 'ruby-gmail'
