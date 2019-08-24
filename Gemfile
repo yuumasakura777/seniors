@@ -76,8 +76,10 @@ end
 
   gem 'jquery-rails'
   gem 'kaminari'
-#amazon S3
+#amazon S3 gcs
   gem 'carrierwave'
-  gem 'fog-aws'
+#gem 'fog-aws'
+  gem 'fog'
+  gem 'dotenv-rails'
 #mailer
   gem 'ruby-gmail'

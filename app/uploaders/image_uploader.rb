@@ -10,6 +10,7 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # Choose what kind of storage to use for this uploader:
   #amazon S3に保存
+
   storage :fog
 
 
