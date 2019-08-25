@@ -54,22 +54,22 @@ class User < ApplicationRecord
 
   #名前による検索
   scope :search_by_name, ->(name){
-    where("name like ?", "%#{name}%").where(admin: false)
+    where("name like ?", "%#{name}%")
   }
 
   #年齢による検索
   scope :search_by_age, ->(age){
-    where(age: age).where(admin: false)
+    where(age: age)
   }
 
   #性別による検索
   scope :search_by_gender, ->(gender){
-    where(gender: gender).where(admin: false)
+    where(gender: gender)
   }
 
   #居住地による検索
   scope :search_by_residence, ->(residence){
-    where(residence: residence).where(admin: false)
+    where(residence: residence)
   }
 
   #最新の登録を一番上に表示&管理者ユーザー非表示
