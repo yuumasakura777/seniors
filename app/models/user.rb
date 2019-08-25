@@ -47,27 +47,29 @@ class User < ApplicationRecord
 
   has_secure_password
 
-  #最新の登録を一番上に表示
-  scope :recent, ->{order(created_at: :desc)}
-
   #名前による検索
   scope :search_by_name, ->(name){
-    where("name like ?", "%#{name}%")
+    where("name like ?", "%#{name}%").where(admin: false)
   }
 
   #年齢による検索
   scope :search_by_age, ->(age){
-    where(age: age)
+    where(age: age).where(admin: false)
   }
 
   #性別による検索
   scope :search_by_gender, ->(gender){
-    where(gender: gender)
+    where(gender: gender).where(admin: false)
   }
 
   #居住地による検索
   scope :search_by_residence, ->(residence){
-    where(residence: residence)
+    where(residence: residence).where(admin: false)
+  }
+
+  #最新の登録を一番上に表示&管理者ユーザー非表示
+  scope :recent_no_user_admin, ->{
+    where(admin: false).order(created_at: :desc)
   }
 
   #お互いフォローしていればマッチング
@@ -80,5 +82,6 @@ class User < ApplicationRecord
   def followed_by?(user)
     passive_relationships.find_by(following_id: user.id).present?
   end
+
 
 end
