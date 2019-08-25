@@ -47,6 +47,11 @@ class User < ApplicationRecord
 
   has_secure_password
 
+  #最新の登録を一番上に表示
+  scope :recent, ->{
+    order(created_at: :desc)
+  }
+
   #名前による検索
   scope :search_by_name, ->(name){
     where("name like ?", "%#{name}%").where(admin: false)
@@ -68,9 +73,9 @@ class User < ApplicationRecord
   }
 
   #最新の登録を一番上に表示&管理者ユーザー非表示
-  scope :recent_no_user_admin, ->{
-    where(admin: false).order(created_at: :desc)
-  }
+  #scope :recent_no_user_admin, ->{
+    #where(admin: false).order(created_at: :desc)
+  #}
 
   #お互いフォローしていればマッチング
   def matchers

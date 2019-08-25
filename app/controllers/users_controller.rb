@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
   def index
     #直近の登録順に表示
-    @users=User.recent_no_user_admin.page(params[:page]).per(20)
+    @users=User.recent.page(params[:page]).per(20)
 
     @u=current_user.matchers
 
