@@ -32,6 +32,7 @@
   <div class="row">
     <h2>ユーザー一覧</h2>
     <% @users.each do |user| %>
+      <!-- 管理者以外には管理者が見えないように表示 -->
       <% unless user.admin==true %>
         <div class="col-md-3">
           <div class="user-index-image">
