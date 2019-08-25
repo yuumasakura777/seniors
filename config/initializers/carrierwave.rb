@@ -18,6 +18,3 @@ if Rails.env.production?
     config.fog_public = true
   end
 end
-
-#AWS_ACCESS_KEY_ID
-#AWS_SECRET_ACCESS_KEY:
