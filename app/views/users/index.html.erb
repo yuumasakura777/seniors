@@ -32,20 +32,22 @@
   <div class="row">
     <h2>ユーザー一覧</h2>
     <% @users.each do |user| %>
-      <div class="col-md-3">
-        <div class="user-index-image">
-          <%= link_to user  do %>
-            <%= image_tag user.image.url %>
-          <% end %>
+      <% unless user.admin==true %>
+        <div class="col-md-3">
+          <div class="user-index-image">
+            <%= link_to user  do %>
+              <%= image_tag user.image.url %>
+            <% end %>
+          </div>
+          <div class="user-index-name">
+            <%= link_to user.name, user %>
+            <!-- 管理者だけに表示される -->
+            <% if current_user.admin? && !current_user?(user) %>
+              <%= link_to 'ユーザー削除', user, method: :delete, data: {confirm: "#{user.name}を削除します。よろしいですか?"} %>
+            <% end %>
+          </div>
         </div>
-        <div class="user-index-name">
-          <%= link_to user.name, user %>
-          <!-- 管理者だけに表示される -->
-          <% if current_user.admin? && !current_user?(user) %>
-            <%= link_to 'ユーザー削除', user, method: :delete, data: {confirm: "#{user.name}を削除します。よろしいですか?"} %>
-          <% end %>
-        </div>
-      </div>
+      <% end %>
     <% end %>
     <div class="user-index-paginate">
       <%= paginate @users %>
