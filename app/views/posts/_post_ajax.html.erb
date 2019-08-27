@@ -24,7 +24,7 @@
     <% if current_user?(post.user) %>
       <!-- 投稿者以外に削除ボタンが表示されないようにする-->
       <span class="post-destroy">
-        <%= link_to '削除', post_path(post), method: :delete, remote:true %>
+        <%= link_to '削除', post_path(post), method: :delete, data:{confirm: 'この投稿を削除します。よろしいですか?'}, remote:true %>
       </span>
     <% end %>
   </div>
