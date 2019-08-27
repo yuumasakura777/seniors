@@ -19,6 +19,13 @@ class PostsController < ApplicationController
     end
   end
 
+  def destroy
+    post=current_user.posts.find(params[:id])
+    post.destroy
+    @posts=Post.recent.includes(:favorite_users).page(1).per(20)
+    #redirect_to posts_path
+  end
+
   private
     def post_params
       params.require(:post).permit(:content)

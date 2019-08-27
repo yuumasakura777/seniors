@@ -21,6 +21,12 @@
     <span class="post-created_at">
       <%= post.created_at %>
     </span>
+    <% if current_user?(post.user) %>
+      <!-- 投稿者以外に削除ボタンが表示されないようにする-->
+      <span class="post-destroy">
+        <%= link_to '削除', post_path(post), method: :delete, remote:true %>
+      </span>
+    <% end %>
   </div>
   <hr>
 <% end %>

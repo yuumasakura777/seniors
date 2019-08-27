@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     get :followers, on: :member
   end
 
-  resources :posts, only: [:index, :new, :create]
+  resources :posts, only: [:index, :new, :create, :destroy]
 
   resources :questions do
     resources :answers
