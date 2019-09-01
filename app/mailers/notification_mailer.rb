@@ -16,11 +16,22 @@ class NotificationMailer < ActionMailer::Base
     @name=name
     @email=email
     mail(
-      subject: "フォローされました。",
+      subject: "マッチングされました。",
       to: @email
     )do |format|
       format.text
     end
   end
 
+  def send_follower_users(user, name, email)
+    @user=user
+    @name=name
+    @email=email
+    mail(
+      subject: "フォローされました。",
+      to: @email
+    )do |format|
+      format.text
+    end
+  end
 end
