@@ -4,7 +4,7 @@
 
 
 <div class="user-show">
-  <div id="follow-event">
+  <div id="follow-show">
     <p><%= @user.name %>さんをフォローしました。</p>
   </div>
   <h1>ユーザー詳細</h1>
@@ -18,7 +18,7 @@
         <span class="show-folloing"><%=link_to "フォロー", follows_user_path(@user.id) %></span>
         <span class="show-follower"><%=link_to "フォロワー", followers_user_path(@user.id) %></span>
       <% end %>
-      <!--自分以外に場合フォローフォロワーボタン表示(自分をフォローしないようにする)-->
+      <!--自分以外の場合フォローフォロワーボタン表示(自分をフォローしないようにする)-->
       <% if !current_user?(@user) %>
         <% if @user.followed_by?(current_user) %>
           <span class="show-unfollow">

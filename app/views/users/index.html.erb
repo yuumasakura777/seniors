@@ -34,7 +34,7 @@
     <% @users.each do |user| %>
       <!-- 管理者以外には管理者が見えないように表示 -->
       <% unless user.admin==true %>
-        <div class="col-md-3">
+        <div class="col-md-3 col-xs-4">
           <div class="user-index-image">
             <%= link_to user  do %>
               <%= image_tag user.image.url %>

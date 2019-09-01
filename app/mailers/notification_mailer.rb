@@ -10,4 +10,17 @@ class NotificationMailer < ActionMailer::Base
       format.text
     end
   end
+
+  def send_matcher_users(user, name, email)
+    @user=user
+    @name=name
+    @email=email
+    mail(
+      subject: "フォローされました。",
+      to: @email
+    )do |format|
+      format.text
+    end
+  end
+
 end

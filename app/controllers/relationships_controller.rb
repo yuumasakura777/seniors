@@ -5,6 +5,8 @@ class RelationshipsController < ApplicationController
   def create
     follow=current_user.active_relationships.build(follower_id: params[:user_id])
     follow.save
+    @f_user=User.find(params[:user_id])
+    NotificationMailer.send_matcher_users(current_user, @f_user.name, @f_user.email).deliver
     flash[:success]="#{@user.name}さんをフォローしました。"
     redirect_to user_path(params[:user_id])
   end
@@ -22,5 +24,6 @@ class RelationshipsController < ApplicationController
     def set_user
       @user=User.find(params[:user_id])
     end
+
 
 end
