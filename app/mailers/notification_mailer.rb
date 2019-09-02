@@ -11,6 +11,17 @@ class NotificationMailer < ActionMailer::Base
     end
   end
 
+  def send_edit_message(user)
+    @user=user
+    mail(
+      subject: "ユーザー情報を更新しました。",
+      to: @user.email
+    ) do |format|
+      format.text
+    end
+
+  end
+
   def send_matcher_users(user, name, email)
     @user=user
     @name=name
@@ -34,4 +45,18 @@ class NotificationMailer < ActionMailer::Base
       format.text
     end
   end
+
+  def talk_messages(user, name, email)
+    @user=user
+    @name=name
+    @email=email
+    mail(
+      subject: "メッセージが届いています。",
+      to: @email
+    )do |format|
+      format.text
+    end
+  end
+
+
 end

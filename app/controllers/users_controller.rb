@@ -57,6 +57,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
+      NotificationMailer.send_edit_message(@user).deliver
       flash[:success]="ユーザー情報を更新しました。"
       redirect_to user_path
     else
