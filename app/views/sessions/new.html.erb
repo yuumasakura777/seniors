@@ -4,7 +4,7 @@
 <div class="session-new">
   <h2>ログイン</h2>
   <div class="row">
-    <div class="col-md-offset-4 col-md-4 session-container">
+    <div class="col-md-offset-4 col-md-4 col-xs-offset-3 col-xs-6 session-container">
       <%= form_with scope: :session, local:true do |f| %>
         <div class="form-group">
           <i class="fas fa-envelope"></i>
@@ -16,7 +16,7 @@
           <%= f.label :password, 'パスワード' %>
           <%= f.password_field :password, placeholder:'パスワードを入力してください。',class: 'form-control' %>
         </div>
-        <div class="session-submit"><%= f.submit 'ログイン', class: 'btn-block btn-white' %></div>
+        <div class="session-submit"><%= f.submit 'ログイン', class: 'btn-block btn-success' %></div>
       <% end %>
     </div>
   </div>
